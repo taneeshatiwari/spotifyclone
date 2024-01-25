@@ -62,27 +62,18 @@ songItems.forEach((element,i) => {
     });
     newaudio.load();
 
-    let songButton = element.getElementsByTagName('i')[0];
+    let songButton = element.querySelectorAll('.songPlay i')[0];
     songButton.addEventListener('click',(evt)=>{
-
-        if(audioElement.paused || audioElement.currentTime<=0){
-         masterPlay.click();
-        makeAllPlays();
         songIndex=i;
+        makeAllPlays();
         evt.target.classList.remove("fa-circle-play");
         evt.target.classList.add("fa-circle-pause")
         audioElement.src=songs[songIndex].filePath;
         audioElement.currentTime=0;
-        audioElement.play();
         document.getElementsByClassName('songPlaying')[0].innerText=songs[songIndex].songName;
+          masterPlay.click();
 
-        }
-        else{
-        masterPlay.click();
-        evt.target.classList.remove("fa-circle-pause");
-        evt.target.classList.add("fa-circle-play");
-        audioElement.pause();
-        }
+        
     })
 });
 
@@ -94,31 +85,19 @@ document.getElementById('previous').addEventListener('click',()=>{
     else{
         songIndex=songIndex-1;
     }
-    
-    audioElement.src=songs[songIndex].filePath;
-    audioElement.currentTime=0;
-    document.getElementsByClassName('songPlaying')[0].innerText=songs[songIndex].songName;
-
-    masterPlay.click();
+   songButton=document.getElementsByTagName('i')[songIndex];
+    songButton.click();
+   
 });
 
 document.getElementById('next').addEventListener('click',()=>{
-    if(songIndex>=songs.length){
+    if(songIndex==songs.length-1){
         songIndex=0 ;
     }
     else{
         songIndex=songIndex+1;
     }
-    audioElement.src=songs[songIndex].filePath;
-        audioElement.currentTime=0;
-        document.getElementsByClassName('songPlaying')[0].innerText=songs[songIndex].songName;
-
-        masterPlay.click();
-        
+    songButton=document.getElementsByTagName('i')[songIndex];
+    songButton.click();
 });
 
-if(audioElement.currentTime==audioElement.duration){
-    document.getElementById('next').click();
-    document.getElementsByClassName('songPlaying')[0].innerText=songs[songIndex].songName;
-
-}
