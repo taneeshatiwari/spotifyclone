@@ -74,7 +74,7 @@ songItems.forEach((element,i) => {
         audioElement.src=songs[songIndex].filePath;
         audioElement.currentTime=0;
         audioElement.play();
-        document.getElementsByClassName('songPlaying')[0].innerText=songs[i].songName;
+        document.getElementsByClassName('songPlaying')[0].innerText=songs[songIndex].songName;
 
         }
         else{
@@ -95,8 +95,9 @@ document.getElementById('previous').addEventListener('click',()=>{
         songIndex=songIndex-1;
     }
     
-    songButton=document.querySelectorAll('.songPlay i')[songIndex];
-    songButton.click();
+    audioElement.src=songs[songIndex].filePath;
+    audioElement.currentTime=0;
+    masterPlay.click();
 });
 
 document.getElementById('next').addEventListener('click',()=>{
@@ -106,9 +107,10 @@ document.getElementById('next').addEventListener('click',()=>{
     else{
         songIndex=songIndex+1;
     }
-    songButton=document.querySelectorAll('.songPlay i')[songIndex];
-    songButton.click();
-
+    audioElement.src=songs[songIndex].filePath;
+        audioElement.currentTime=0;
+        masterPlay.click();
+        
 });
 
 if(audioElement.currentTime==audioElement.duration){
