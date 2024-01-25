@@ -5,6 +5,8 @@ let progressBar = document.getElementById('bar');
 let playingGif=document.getElementById('playingGif');
 let songItems = document.querySelectorAll('.songItems');
 
+audioElement.preload = "auto";
+
 let songs = [
     {songName:"Husn - Anuv Jain",filePath: "song/Husn.mp3",coverPath : "cover/Husn.png"},
     {songName:"Alag Aasmaan - Anuv Jain",filePath: "song/Alag Aasmaan.mp3",coverPath : "cover/Alag Aasmaan.png"},
