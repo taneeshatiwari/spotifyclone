@@ -97,6 +97,8 @@ document.getElementById('previous').addEventListener('click',()=>{
     
     audioElement.src=songs[songIndex].filePath;
     audioElement.currentTime=0;
+    document.getElementsByClassName('songPlaying')[0].innerText=songs[songIndex].songName;
+
     masterPlay.click();
 });
 
@@ -109,10 +111,14 @@ document.getElementById('next').addEventListener('click',()=>{
     }
     audioElement.src=songs[songIndex].filePath;
         audioElement.currentTime=0;
+        document.getElementsByClassName('songPlaying')[0].innerText=songs[songIndex].songName;
+
         masterPlay.click();
         
 });
 
 if(audioElement.currentTime==audioElement.duration){
     document.getElementById('next').click();
+    document.getElementsByClassName('songPlaying')[0].innerText=songs[songIndex].songName;
+
 }
