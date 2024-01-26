@@ -1,5 +1,5 @@
 let songIndex=0;
-let audioElement = new Audio('song/Husn.mp3');
+let audioElement = new Audio();
 let masterPlay = document.getElementById('masterPlay');
 let progressBar = document.getElementById('bar');
 let playingGif=document.getElementById('playingGif');
