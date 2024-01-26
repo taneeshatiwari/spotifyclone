@@ -69,6 +69,7 @@ songItems.forEach((element,i) => {
         evt.target.classList.remove("fa-circle-play");
         evt.target.classList.add("fa-circle-pause")
         audioElement.src=songs[songIndex].filePath;
+        audioElement.load();
         audioElement.currentTime=0;
         document.getElementsByClassName('songPlaying')[0].innerText=songs[songIndex].songName;
           masterPlay.click();
