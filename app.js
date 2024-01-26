@@ -59,7 +59,7 @@ songItems.forEach((element,i) => {
     newaudio.addEventListener('loadedmetadata',  ()=> {
         element.getElementsByClassName('songTime')[0].innerText = (newaudio.duration/60).toFixed(2);
     });
-    newaudio.load();
+
 
     newaudio.addEventListener('canplaythrough', () => {
     let songButton = element.querySelectorAll('.songPlay i')[0];
