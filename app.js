@@ -61,6 +61,7 @@ songItems.forEach((element,i) => {
     });
     newaudio.load();
 
+    newaudio.addEventListener('canplaythrough', () => {
     let songButton = element.querySelectorAll('.songPlay i')[0];
     songButton.addEventListener('click',(evt)=>{
         songIndex=i;
@@ -74,7 +75,8 @@ songItems.forEach((element,i) => {
           masterPlay.click();
 
         
-    })
+    });
+});
 });
 
 
